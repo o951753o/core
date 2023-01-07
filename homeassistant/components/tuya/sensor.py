@@ -19,6 +19,7 @@ from homeassistant.const import (
     UnitOfElectricPotential,
     UnitOfPower,
     UnitOfTime,
+    UnitOfTemperature,
 )
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers.dispatcher import async_dispatcher_connect
@@ -502,6 +503,8 @@ SENSORS: dict[str, tuple[TuyaSensorEntityDescription, ...]] = {
         TuyaSensorEntityDescription(
             key=DPCode.WORK_POWER,
             name="Power",
+            icon="mdi:thermometer",
+            native_unit_of_measurement=UnitOfTemperature,
             device_class=SensorDeviceClass.POWER,
             state_class=SensorStateClass.MEASUREMENT,
         ),
